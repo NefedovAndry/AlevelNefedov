@@ -27,13 +27,13 @@ public class FibonacciNumbers {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("в•џОЈв‰ЎО±О“В±в‰ҐО“в‰¤Ов‰ҐПѓ! в”јВ±ОґО¦ вЊЎОµв‰ҐО¦в‰ҐПѓ в‰¤П„П†О±в‰ҐвЃї П„П†О±в‰€ПѓП†О¦Пѓ в‰€О¦В±ОґО± в•О¦ГџОµП†О±в‰€в‰€О¦ в€©Оµ ПѓПЂОµ в€©Оµв‰ЎВ ОЈО©ОµО“Оµв€ћв‰¤ П†Оµв€ћПѓв‰Ўв‰¤ О“ПѓОЈО¦в‰ҐПѓ О¦В±О©Оµв€ћв€љО П†Оµв€ћПѓв‰Ў:");
+		System.out.println("Здравствуйте! Если хотите узнать значение числа Фибоначчи по его порядковому номеру ведите искомый номер:");
 		Scanner scan = new Scanner(System.in);
 		int inputNumber = scan.nextInt();
-		System.out.println(inputNumber <= 0 ? ("в”њОґв‰¤в€©Оµ!") : ("в•љВ±О©Оµв€ћОµПѓ в‰€О¦В±ОґОµ в•О¦ГџОµП†О±в‰€в‰€О¦: " + fiboNumberCycle(inputNumber)));
-		System.out.println("в”” в‰ҐПѓв€©Пѓв‰ЎвЃї в€©в‰ЎОµО“Пѓв‰ЎО¦в€ћ в‰ЎПѓО©в‰¤в‰ЎВ±О¦в– . в”¬О“ПѓОЈО¦ в€©Оµв‰ЎВ ОЈО©ОµО“в€љО П†Оµв€ћПѓв‰Ў в‰€О¦В±ОґО± в•О¦ГџОµП†О±в‰€в‰€О¦:");
+		System.out.println(inputNumber <= 0 ? ("Глупо!") : ("Искомое число Фибоначчи: " + fiboNumberCycle(inputNumber)));
+		System.out.println("А теперь проверим рекурсию. Введи порядковый номер числа Фибоначчи:");
 		inputNumber = scan.nextInt();
-		System.out.println(inputNumber <= 0 ? ("в”њОґв‰¤в€©Оµ!") : ("в•љВ±О©Оµв€ћОµПѓ в‰€О¦В±ОґОµ в•О¦ГџОµП†О±в‰€в‰€О¦: " + fiboNumberRecursion(inputNumber)));
+		System.out.println(inputNumber <= 0 ? ("Глупо!") : ("Искомое число Фибоначчи: " + fiboNumberRecursion(inputNumber)));
 	}
 	
 }
