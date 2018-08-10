@@ -64,7 +64,7 @@ public class Train {
     }
 
     public void info() {
-        System.out.println("Train goes from " + checkOut.toString() + " to " + checkIn.toString());
+        System.out.println("Train N" + number + " goes from " + checkOut.toString() + " to " + checkIn.toString());
         System.out.println("Train N" + number + " has " + size() + " vans.");
         System.out.println("Train N" + number + " scheme:");
         scheme();
