@@ -2,7 +2,7 @@ package com.alevel.hometask.oop.module;
 
 import java.util.Random;
 
-public class Waggon {
+public abstract class Waggon {
     private int load;
     private String type;
 
