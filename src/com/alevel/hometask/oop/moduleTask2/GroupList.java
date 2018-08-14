@@ -78,7 +78,7 @@ public class GroupList {
 
     void showRates() {
         Set<String> names = this.group.keySet();
-        System.out.println("Group N" + number);
+        System.out.println("Group N" + number + ". Rates.");
         for (String studentsName : names) {
             System.out.println(studentsName + " - " + this.group.get(studentsName).toString());
         }
@@ -86,7 +86,7 @@ public class GroupList {
 
     void showAwards() {
         Set<String> names = this.group.keySet();
-        System.out.println("Group N" + number);
+        System.out.println("Group N" + number + ". Awards.");
         for (String studentsName : names) {
             System.out.println(studentsName + " - " + awardCulc(studentsName));
         }
