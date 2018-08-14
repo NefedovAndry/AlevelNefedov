@@ -56,7 +56,7 @@ public class GroupList {
     }
 
     private double avarageRate(String name) {
-        return ((5 * ratesArray(name)[5] + 4 * ratesArray(name)[4] + 3 * ratesArray(name)[3])) / 3.0;
+        return ((5 * ratesArray(name)[5] + 4 * ratesArray(name)[4] + 3 * ratesArray(name)[3])) / (double) this.group.get(name).size();
     }
 
     private double awardCulc(String name) {
