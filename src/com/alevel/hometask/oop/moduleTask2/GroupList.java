@@ -12,19 +12,19 @@ public class GroupList {
         this.group = new HashMap<>();
     }
 
-    void addGroupList(Map<String, ArrayList<Integer>> newGroupList) {
+    public void addGroupList(Map<String, ArrayList<Integer>> newGroupList) {
         this.group.putAll(newGroupList);
     }
 
-    void addStudent(String name) {
+    public void addStudent(String name) {
         this.group.put(name, new ArrayList<Integer>(5));
     }
 
-    void addRates(String name, ArrayList<Integer> rates) {
+    public void addRates(String name, ArrayList<Integer> rates) {
         this.group.put(name, rates);
     }
 
-    void addRate(String name, int rate) {
+    public void addRate(String name, int rate) {
         this.group.get(name).add(rate);
     }
 
@@ -56,7 +56,8 @@ public class GroupList {
     }
 
     private double avarageRate(String name) {
-        return ((5 * ratesArray(name)[5] + 4 * ratesArray(name)[4] + 3 * ratesArray(name)[3])) / (double) this.group.get(name).size();
+        return ((5 * ratesArray(name)[5] + 4 * ratesArray(name)[4] + 3 * ratesArray(name)[3])) / 
+            (double) this.group.get(name).size();
     }
 
     private double awardCulc(String name) {
@@ -76,7 +77,7 @@ public class GroupList {
         }
     }
 
-    void showRates() {
+    public void showRates() {
         Set<String> names = this.group.keySet();
         System.out.println("Group N" + number + ". Rates.");
         for (String studentsName : names) {
@@ -84,7 +85,7 @@ public class GroupList {
         }
     }
 
-    void showAwards() {
+    public void showAwards() {
         Set<String> names = this.group.keySet();
         System.out.println("Group N" + number + ". Awards.");
         for (String studentsName : names) {
