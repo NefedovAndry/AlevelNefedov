@@ -1,3 +1,5 @@
+package com.alevel.hometask.basic;
+
 import java.util.Scanner;
 
 public class FibonacciNumbers {
@@ -27,13 +29,13 @@ public class FibonacciNumbers {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("Здравствуйте! Если хотите узнать значение числа Фибоначчи по его порядковому номеру ведите искомый номер:");
+		System.out.println("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ! пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ:");
 		Scanner scan = new Scanner(System.in);
 		int inputNumber = scan.nextInt();
-		System.out.println(inputNumber <= 0 ? ("Глупо!") : ("Искомое число Фибоначчи: " + fiboNumberCycle(inputNumber)));
-		System.out.println("А теперь проверим рекурсию. Введи порядковый номер числа Фибоначчи:");
+		System.out.println(inputNumber <= 0 ? ("пїЅпїЅпїЅпїЅпїЅ!") : ("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " + fiboNumberCycle(inputNumber)));
+		System.out.println("пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ:");
 		inputNumber = scan.nextInt();
-		System.out.println(inputNumber <= 0 ? ("Глупо!") : ("Искомое число Фибоначчи: " + fiboNumberRecursion(inputNumber)));
+		System.out.println(inputNumber <= 0 ? ("пїЅпїЅпїЅпїЅпїЅ!") : ("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " + fiboNumberRecursion(inputNumber)));
 	}
 	
 }

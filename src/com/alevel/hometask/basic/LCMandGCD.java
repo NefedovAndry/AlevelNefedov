@@ -1,3 +1,5 @@
+package com.alevel.hometask.basic;
+
 import java.util.Scanner;
 
 public class LCMandGCD {

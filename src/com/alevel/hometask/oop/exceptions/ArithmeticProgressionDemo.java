@@ -2,12 +2,20 @@ package com.alevel.hometask.oop.exceptions;
 
 public class ArithmeticProgressionDemo {
     public static void main(String[] args) {
+        ArithmeticProgression myArithmProgr;
         try {
-            ArithmeticProgression myArithmProgr = new ArithmeticProgression(2, 5);
+            myArithmProgr = new ArithmeticProgression(2, 5);
             int n = myArithmProgr.calculate(2);
             System.out.println(n);
         } catch (ProgressionConfigurationException e) {
-            System.err.println(e);
+            e.printStackTrace();
+            return;
+        }
+        try {
+            int n = myArithmProgr.calculate(2);
+            System.out.println(n);
+        } catch (ProgressionConfigurationException e) {
+            e.printStackTrace();
         }
     }
 }
