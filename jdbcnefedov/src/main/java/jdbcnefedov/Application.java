@@ -40,29 +40,32 @@ public class Application {
                 playerRepository.save(new Player(playerName));
             }
 
-//            System.out.println("Input player id:");
-//            long id = scanner.nextLong();
-//            System.out.printf("%2s | %10s | %10s | %10s\n" +
-//                            "-----------------------------------------\n",
-//                    "id", "name", "rank", "score");
-//            printPlayer(playerRepository.get(id));
-//            System.out.print("\n\nAll Players:\n");
+            System.out.printf("%2s | %10s | %10s | %10s\n" +
+                            "-----------------------------------------\n",
+                    "id", "name", "rank", "score");
 
             for (Player player : playerRepository.list()) {
                 printPlayer(player);
             }
+
+            System.out.println("Input player id:");
+            long id = scanner.nextLong();
+            System.out.printf("%2s | %10s | %10s | %10s\n" +
+                            "-----------------------------------------\n",
+                    "id", "name", "rank", "score");
+
+            printPlayer(playerRepository.get(id));
+            System.out.print("\n\nAll Players:\n");
+
         } catch (SQLException | StorageException e) {
             panic(e);
         }
-
-
     }
 
     private static void printPlayer(Player player) {
         System.out.printf("%2d | %10s | %10s | %10d\n",
                 player.getId(), player.getNickname(), player.getRank(), player.getScore());
     }
-
 
     public static void panic(Throwable e) {
         e.printStackTrace();
