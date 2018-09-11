@@ -1,5 +1,7 @@
 package jdbcnefedov;
 
+import jdbcnefedov.player.Player;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
@@ -32,6 +34,12 @@ public class Application {
 
 
     }
+
+    private static void printPlayer(Player player) {
+        System.out.printf("%2d | %10s | %10s | %10d\n",
+                player.getId(), player.getNickname(), player.getRank(), player.getScore());
+    }
+
 
     public static void panic(Throwable e) {
         e.printStackTrace();
