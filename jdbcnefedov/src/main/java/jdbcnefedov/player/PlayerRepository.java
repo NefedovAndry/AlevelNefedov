@@ -23,7 +23,7 @@ public class PlayerRepository implements Repository<Player, Long> {
     public void save(Player entity) throws StorageException {
         String nickname = entity.getNickname();
         long score = entity.getScore();
-        String sql = "INSERT INTO players (name, score) VALUES (?, ?) " +
+        String sql = "INSERT INTO players_db (name, score) VALUES (?, ?) " +
                 "ON DUPLICATE KEY UPDATE name = ?, score = ?";
         try (PreparedStatement statement = connectionSupplier.get().prepareStatement(sql)) {
             statement.setString(1, nickname);
@@ -39,9 +39,9 @@ public class PlayerRepository implements Repository<Player, Long> {
 
     @Override
     public List<Player> list() throws StorageException {
-        String sql = "SELECT players.id id, players.name name, ranks.name player_rank, players.score score " +
-                "FROM players INNER JOIN ranks " +
-                "ON players.score BETWEEN lower_t AND upper_t - 1";
+        String sql = "SELECT players_db.id id, players_db.nikname name, ranks.name player_rank, players_db.score score " +
+                "FROM players_db INNER JOIN ranks " +
+                "ON players_db.score BETWEEN lower_t AND upper_t - 1";
         try (PreparedStatement statement = connectionSupplier.get().prepareStatement(sql)) {
             ResultSet resultSet = statement.executeQuery();
             List<Player> players = new LinkedList<>();
@@ -56,10 +56,10 @@ public class PlayerRepository implements Repository<Player, Long> {
 
     @Override
     public Player get(Long id) throws StorageException {
-        String sql = "SELECT players.id id, players.name name, ranks.name player_rank, players.score score " +
-                "FROM players INNER JOIN ranks " +
-                "ON players.score BETWEEN lower_t AND upper_t - 1 " +
-                "WHERE players.id = ?";
+        String sql = "SELECT players_db.id id, players_db.nikname name, ranks.name player_rank, players_db.score score " +
+                "FROM players_db INNER JOIN ranks " +
+                "ON players_db.score BETWEEN lower_t AND upper_t - 1 " +
+                "WHERE players_db.id = ?";
         try (PreparedStatement statement = connectionSupplier.get().prepareStatement(sql)) {
             statement.setLong(1, id);
             ResultSet resultSet = statement.executeQuery();
@@ -77,7 +77,7 @@ public class PlayerRepository implements Repository<Player, Long> {
 
     @Override
     public void delete(Player entity) throws StorageException {
-        String sql = "DELETE FROM players WHERE id = ?";
+        String sql = "DELETE FROM players_db WHERE id = ?";
         try (PreparedStatement statement = connectionSupplier.get().prepareStatement(sql)) {
             statement.setLong(1, entity.getId());
             statement.executeUpdate();

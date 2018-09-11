@@ -1,11 +1,18 @@
 package jdbcnefedov;
 
+import jdbcnefedov.common.SingleConnectionPool;
+import jdbcnefedov.common.StorageException;
 import jdbcnefedov.player.Player;
+import jdbcnefedov.player.PlayerRepository;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Properties;
+import java.util.Scanner;
+import java.util.function.Supplier;
 
 public class Application {
     public static void main(String[] args) {
@@ -17,18 +24,34 @@ public class Application {
         }
         String url = connectionProps.getProperty("url");
         try (Connection connection = DriverManager.getConnection(url, connectionProps)) {
-            try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM ranks")) {
-                ResultSet resultSet = preparedStatement.executeQuery();
-                while (resultSet.next()) {
-                    long id = resultSet.getLong("id");
-                    String name = resultSet.getString("name");
-                    long lowerThreshold = resultSet.getLong("lower_t");
-                    long upperThreshold = resultSet.getLong("upper_t");
-                    System.out.printf("id: %d, name: %s, lower_t: %d, upper_t: %d;\n",
-                            id, name, lowerThreshold, upperThreshold);
-                }
+
+            Supplier<Connection> connectionSupplier = new SingleConnectionPool(connection);
+
+            //create and save players
+            PlayerRepository playerRepository = new PlayerRepository(connectionSupplier);
+            System.out.println("Input player names:");
+            Scanner scanner = new Scanner(System.in);
+            List<String> names = new LinkedList<>();
+            String name;
+            while (!(name = scanner.nextLine()).isEmpty()) {
+                names.add(name);
             }
-        } catch (SQLException e) {
+            for (String playerName : names) {
+                playerRepository.save(new Player(playerName));
+            }
+
+            System.out.println("Input player id:");
+            long id = scanner.nextLong();
+            System.out.printf("%2s | %10s | %10s | %10s\n" +
+                            "-----------------------------------------\n",
+                    "id", "name", "rank", "score");
+            printPlayer(playerRepository.get(id));
+            System.out.print("\n\nAll Players:\n");
+
+            for (Player player : playerRepository.list()) {
+                printPlayer(player);
+            }
+        } catch (SQLException | StorageException e) {
             panic(e);
         }
 
