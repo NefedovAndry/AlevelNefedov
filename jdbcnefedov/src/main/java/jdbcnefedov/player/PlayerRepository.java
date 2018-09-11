@@ -23,8 +23,8 @@ public class PlayerRepository implements Repository<Player, Long> {
     public void save(Player entity) throws StorageException {
         String nickname = entity.getNickname();
         long score = entity.getScore();
-        String sql = "INSERT INTO players_db (name, score) VALUES (?, ?) " +
-                "ON DUPLICATE KEY UPDATE name = ?, score = ?";
+        String sql = "INSERT INTO players_db (nikname, score) VALUES (?, ?) " +
+                "ON DUPLICATE KEY UPDATE nikname = ?, score = ?";
         try (PreparedStatement statement = connectionSupplier.get().prepareStatement(sql)) {
             statement.setString(1, nickname);
             statement.setLong(2, score);

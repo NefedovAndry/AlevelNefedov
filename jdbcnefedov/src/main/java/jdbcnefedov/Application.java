@@ -40,13 +40,13 @@ public class Application {
                 playerRepository.save(new Player(playerName));
             }
 
-            System.out.println("Input player id:");
-            long id = scanner.nextLong();
-            System.out.printf("%2s | %10s | %10s | %10s\n" +
-                            "-----------------------------------------\n",
-                    "id", "name", "rank", "score");
-            printPlayer(playerRepository.get(id));
-            System.out.print("\n\nAll Players:\n");
+//            System.out.println("Input player id:");
+//            long id = scanner.nextLong();
+//            System.out.printf("%2s | %10s | %10s | %10s\n" +
+//                            "-----------------------------------------\n",
+//                    "id", "name", "rank", "score");
+//            printPlayer(playerRepository.get(id));
+//            System.out.print("\n\nAll Players:\n");
 
             for (Player player : playerRepository.list()) {
                 printPlayer(player);
