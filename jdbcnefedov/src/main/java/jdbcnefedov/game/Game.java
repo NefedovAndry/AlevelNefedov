@@ -3,7 +3,7 @@ package jdbcnefedov.game;
 import java.util.List;
 import java.util.Objects;
 
-public class Games {
+public class Game {
 
     private final Long id;
     private final Long idWinner;
@@ -11,7 +11,7 @@ public class Games {
     private final List<Long> playersList;
 
 
-    public Games(Long id, Long idWinner, Long score, List<Long> playersList) {
+    public Game(Long id, Long idWinner, Long score, List<Long> playersList) {
         this.id = id;
         this.idWinner = idWinner;
         this.score = score;
@@ -38,11 +38,11 @@ public class Games {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Games games = (Games) o;
-        return Objects.equals(id, games.id) &&
-                Objects.equals(idWinner, games.idWinner) &&
-                Objects.equals(score, games.score) &&
-                Objects.equals(playersList, games.playersList);
+        Game game = (Game) o;
+        return Objects.equals(id, game.id) &&
+                Objects.equals(idWinner, game.idWinner) &&
+                Objects.equals(score, game.score) &&
+                Objects.equals(playersList, game.playersList);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class Games {
 
     @Override
     public String toString() {
-        return "Games{" +
+        return "Game{" +
                 "id=" + id +
                 ", idWinner=" + idWinner +
                 ", score=" + score +
