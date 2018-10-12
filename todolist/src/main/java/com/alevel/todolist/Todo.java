@@ -1,5 +1,8 @@
 package com.alevel.todolist;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
 public class Todo {
@@ -13,7 +16,12 @@ public class Todo {
         this.done = false;
     }
 
-    public Todo(long id, String text, boolean done) {
+    @JsonCreator
+    public Todo(
+            @JsonProperty("id") Long id,
+            @JsonProperty("text") String text,
+            @JsonProperty("done") Boolean done
+    ) {
         this.id = id;
         this.text = text;
         this.done = done;
