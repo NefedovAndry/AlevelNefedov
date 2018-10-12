@@ -48,6 +48,6 @@ public class TodoServlet extends HttpServlet {
 
     @Override
     public void destroy() {
-        super.destroy();
+        dataSource.close();
     }
 }
